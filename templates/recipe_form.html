@@ -1,0 +1,31 @@
+{% include "header.html" %}
+<body>
+        <!-- Page Header-->
+<!--        <header class="masthead" style="background-image: url({{ url_for('static', filename='assets/img/home-bg.jpg') }})">-->
+    <header class="masthead" style="background-image: url('https://images.wsj.net/im-121422')">
+        <div class="container position-relative px-4 px-lg-5">
+        
+
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>Search Recipes</h1>
+                            <span class="subheading">Are you looking for culinary inspiration or a specific dish to cook tonight? Use our search bar below to discover a wide variety of delicious recipes.</span>
+                            
+
+<head>
+    <title>CSV Search</title>
+    <link rel="stylesheet" type="text/css" href="static/css/styles.css">
+</head>
+    <br>
+    <form method="POST" action="/search">
+        <input type="text" name="query" placeholder="Search...">
+        <button type="submit">Search</button>
+    </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>  
+</body>    
+{% include "footer.html" %}

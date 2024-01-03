@@ -1,0 +1,44 @@
+{% include "header.html" %}
+
+        <!-- Page Header-->
+<!--        <header class="masthead" style="background-image: url({{ url_for('static', filename='assets/img/home-bg.jpg') }})">-->
+    <header class="masthead" style="background-image: url('https://domf5oio6qrcr.cloudfront.net/medialibrary/13503/bigstock-Health-food-selection-super-foods-fruits-veggies.jpg')">
+        <div class="container position-relative px-4 px-lg-5">
+        
+
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>Nutritional Facts</h1>
+                            <span class="subheading"><strong>Fuel your body wisely. Find out the nutritional facts to make healthier choices and thrive!</strong></span>
+                      <br>
+                      <span class="subheading"><strong>Enter the name of the dish:</strong></span> 
+
+<head>
+
+    
+    <link rel="stylesheet" type="text/css" href="/static/css/blog_styles.css">
+</head>
+
+    <br>
+    
+    
+    <form method="POST" action="{{url_for('show_food_info')}}">
+        <input type="text" name="query" placeholder="Dish Name">
+        <button type="submit">Check</button>
+    </form>
+    
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+
+                    
+                </div>
+            </div>
+        </div>
+
+{% include "footer.html" %}

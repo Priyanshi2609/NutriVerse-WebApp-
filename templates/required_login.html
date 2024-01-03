@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Required - NutriVerse</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .login-container {
+            max-width: 400px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #3498db;
+            color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transform: translateY(20px);
+            opacity: 0;
+            transition: transform 0.5s, opacity 0.5s;
+        }
+
+        .login-container.animated {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin: 20px 0;
+            animation: fadeIn 0.5s;
+        }
+
+        p {
+            font-size: 18px;
+            animation: fadeIn 0.5s 0.2s;
+        }
+
+        .cta-button {
+            display: block;
+            padding: 10px 20px;
+            background-color: #ff7f50;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 18px;
+            transition: background-color 1s;
+            animation: pulse 1.5s infinite;
+        }
+
+        .cta-button:hover {
+            background-color: #e64a19;
+            animation: none;
+        }
+
+        /* Add responsive styles */
+        @media (max-width: 768px) {
+            .login-container {
+                max-width: 90%;
+            }
+        }
+
+        /* Keyframe animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1.1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container animated">
+        <h1>Login Required</h1>
+        <p>You need to log in to proceed.</p>
+        <a href="/" class="cta-button">Log In</a>
+    </div>
+</body>
+</html>

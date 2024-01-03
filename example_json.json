@@ -1,0 +1,76 @@
+
+{
+    "_id" : "654614c3c540d5b8809731bf",
+    "name": "Viraj ",
+    "email": "mahaleviral1018@gmail.com",
+    "password": "12345678",
+    "Tracker": { 
+        "daily_intake": {
+            "2023-11-01": {
+              "calories": 2000,
+              "protein": 80,
+              "carbohydrates": 250,
+              "fat": 70,
+              "vitamin_a": 800,
+              "vitamin_c": 90,
+              "calcium": 1000,
+              "iron": 18
+            },
+            "2023-11-02": {
+              "calories": 1900,
+              "protein": 75,
+              "carbohydrates": 240,
+              "fat": 65,
+              "vitamin_a": 820,
+              "vitamin_c": 88,
+              "calcium": 980,
+              "iron": 17
+            }
+          },
+          "weekly_intake": {
+            "2023-10-30": {
+              "calories": 14000,
+              "protein": 560,
+              "carbohydrates": 1750,
+              "fat": 490,
+              "vitamin_a": 5600,
+              "vitamin_c": 630,
+              "calcium": 7000,
+              "iron": 126
+            },
+            "2023-11-06": {
+              "calories": 13900,
+              "protein": 555,
+              "carbohydrates": 1740,
+              "fat": 485,
+              "vitamin_a": 5660,
+              "vitamin_c": 622,
+              "calcium": 6940,
+              "iron": 124
+            }
+          },
+          "monthly_intake": {
+            "2023-10": {
+              "calories": 60000,
+              "protein": 2400,
+              "carbohydrates": 7500,
+              "fat": 2100,
+              "vitamin_a": 24000,
+              "vitamin_c": 2700,
+              "calcium": 30000,
+              "iron": 540
+            },
+            "2023-11": {
+              "calories": 55800,
+              "protein": 2232,
+              "carbohydrates": 6975,
+              "fat": 1935,
+              "vitamin_a": 22320,
+              "vitamin_c": 2511,
+              "calcium": 27885,
+              "iron": 501
+            }
+          }
+
+    }
+}

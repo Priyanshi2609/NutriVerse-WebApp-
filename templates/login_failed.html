@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" /><title>Login Failed</title>
+    <style>
+        body {
+            font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";;
+            background: linear-gradient(to bottom, #CDF5FD, #9AD1DB);
+            background-size: 100% 100vh;
+            text-align: center;
+        }
+
+        .login-failed {
+            width: 300px;
+            margin: 100px auto;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h1 {
+            color: #ff5733;
+            font-size: 24px;
+            margin: 0;
+            animation: shake 1s linear 2;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        .options {
+            margin-top: 20px;
+        }
+
+        .options a {
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #3498db;
+            color: #fff;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            display: inline-block;
+        }
+
+        .options a:hover {
+            background-color: #058adc;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes shake {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            10%, 30%, 50%, 70%, 90% {
+                transform: translateX(-5px);
+            }
+            20%, 40%, 60%, 80% {
+                transform: translateX(5px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-failed">
+        <h1>Login Failed !</h1>
+        <p>Sorry, your login attempt was unsuccessful.</p>
+        <div class="options">
+            <a href="/">Go back to Home</a>
+            <a href="/login">Log in again</a>
+            <a href="/sign_up">Sign up</a>
+        </div>
+    </div>
+</body>
+</html>

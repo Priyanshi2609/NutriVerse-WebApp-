@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap"
+      rel="stylesheet"/>
+    <title>Food Nutrition Content</title>
+    <style>
+        body {
+            font-family: "Rubik", sans-serif;
+            background-color: #CDF5FD;
+            margin: 0;
+            padding: 0;
+            /* display: flex; */
+            display: inline;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin-top: 100px;
+            margin-bottom: 100px;
+            margin-left: 20%;
+            margin-right: 20%;
+            padding: 20px;
+            background-color: #3498db;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px; 
+        }
+
+        h1 {
+            font-size: 28px;
+            text-align: center; /* Center the title */
+        }
+
+        .food-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+   
+        .food-image {
+            max-width: 300px; /* Increase the max-width to make the image larger */
+            max-height: 300px; /* Increase the max-height to maintain proportions */
+            border: 1px solid #ccc;
+            margin-right: 20px;
+        }
+        .nutrition-info {
+            flex: 1;
+        }
+
+        .nutrition-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+{%include "header.html" %}
+<body>
+    
+    <div class="container">
+        <h1>Food Nutrition Contents</h1>
+        <div class="food-info">
+            <img src="{{food_data[1]}}" alt="Food Image" class="food-image">
+            <div class="nutrition-info">
+                <h2 class="nutrition-title">{{food_data[0]}}</h2>
+                <ul>
+                    <li><strong>Calories:</strong>{{food_data[2]}} calories</li>
+                    <li><strong>Protein:</strong> {{food_data[3]}} g</li>
+                    <li><strong>Carbohydrates:</strong>{{food_data[4]}} g</li>
+                    <li><strong>Fat:</strong> {{food_data[5]}} g</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+</body>
+{%include "footer.html" %}
+</html>

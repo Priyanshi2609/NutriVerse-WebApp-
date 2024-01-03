@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Food Details</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('https://img.freepik.com/premium-photo/food-cooking-background-fresh-saffron-garlic-cilantro-basil-cherry-tomatoes-peppers-olive-oil-spices-herbs-vegetables-light-grey-slate-table-food-ingredients-top-view_253362-11380.jpg');
+            background-size: cover;
+            font-family: 'Open Sans', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            margin: 10px;
+            cursor: pointer;
+            transition: transform 0.3s;
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid #eee;
+            color: white;
+            border-radius: 8px;
+        }
+
+        .container:hover {
+            transform: scale(1.05);
+        }
+
+        .food-name {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0;
+            color: white;
+        }
+
+        .description {
+            font-size: 16px;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .details {
+            display: none;
+            padding: 10px;
+        }
+
+        .ingredients {
+            font-weight: normal;
+            color: white;
+        }
+  <!--
+        .ingredients ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }-->
+        .ingredients ul {
+            list-style-type: none; /* Remove default bullet */
+            margin-left: 20px;
+        }
+        .ingredients ul li::before {
+            content: "❖";; /* Unicode arrow symbol (❖) */
+            margin-right: 5px;
+        }
+
+        .author {
+            font-style: italic;
+            font-size: 14px;
+            font-weight: normal;
+            color: white;
+        }
+
+        .recipe-card {
+            background: rgba(0, 0, 0, 0.7); /* Change the background color to black */
+            border: 1px solid #ccc;
+            padding: 10px;
+            color: white;
+            border-radius: 8px;
+        }
+
+        .recipe-card p {
+            margin: 0;
+        }
+
+        .instructions {
+            font-weight: normal;
+            color: white;
+        }
+
+        .instructions ol {
+            list-style-type: decimal;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    {% for food in results %}
+    <div class="container" id="food{{ food.id }}">
+        <div class="food-name">{{ food.recipe_title }}</div>
+         
+    </div>
+    <div class="details" id="details{{ food.id }}">
+          
+        <div class="recipe-card">
+            <p class="description">{{ food.description }}</p> 
+            <br>
+            <div class="ingredients">
+                <p>Ingredients:</p>
+                <ul>
+                    {% for ingredient in food.ingredients.split('|') if ingredient.strip() %}
+                        <li>{{ ingredient }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="instructions">
+                <p>Instructions:</p>
+                <ol>
+                    {% for step in food.instructions.split('\n') if step.strip() %}
+                        <li>{{ step }}</li>
+                    {% endfor %}
+                </ol>
+            </div>
+            <p class="author">Recipe by {{ food.author }}</p>
+        </div>
+    </div>
+    {% endfor %}
+
+    <script>
+        const containers = document.querySelectorAll('.container');
+        const details = document.querySelectorAll('.details');
+
+        containers.forEach((container, index) => {
+            container.addEventListener('click', () => {
+                details[index].style.display = details[index].style.display === 'none' ? 'block' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>

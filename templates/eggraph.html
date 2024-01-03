@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrient Tracking</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Worm graph container */
+        .worm-graph-container {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+        canvas {
+            max-width: 100%; /* Make the chart responsive */
+            height: auto; /* Maintain aspect ratio */
+        }
+    </style>
+</head>
+<body>
+    <div class="worm-graph-container">
+        <canvas id="nutrientChart"></canvas>
+    </div>
+
+    <script>
+        function createChart() {
+            // Sample data for the past 14 days for each nutrient
+            const days = Array.from({ length: 30 }, (_, i) => `Day ${i + 1}`);
+            const nutrientData1 = {{last_30_days_data["calories_last_30_days"]}};
+            const nutrientData2 = {{last_30_days_data['protein_g_last_30_days']}};
+            const nutrientData3 = {{last_30_days_data['carbohydrates_total_g_last_30_days']}};
+            const nutrientData4 = {{last_30_days_data['fat_total_g_last_30_days']}};
+            // Create Chart.js chart for all four nutrients
+            const ctx = document.getElementById('nutrientChart').getContext('2d');
+            const chart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: days,
+                    datasets: [
+                        {
+                            label: 'Calories/10',
+                            data: nutrientData1,
+                            borderColor: '#62ff50',
+                            fill: false,
+                        },
+                        {
+                            label: 'Proteins',
+                            data: nutrientData2,
+                            borderColor: '#ff6234',
+                            fill: false,
+                        },
+                        {
+                            label: 'Carbs',
+                            data: nutrientData3,
+                            borderColor: '#3462ff',
+                            fill: false,
+                        },
+                        {
+                            label: 'Fats',
+                            data: nutrientData4,
+                            borderColor: '#ff34a7',
+                            fill: false,
+                        }
+                    ]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Quantity of Nutrients',
+                                font: {
+                                    size: 14, // Set your desired font size
+                                }
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Days',
+                                font: {
+                                    size: 1, // Set your desired font size
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        createChart();
+
+        window.addEventListener('resize', () => {
+            // Remove the old chart and create a new one on window resize
+            const chartElement = document.getElementById('nutrientChart');
+            chartElement.parentNode.removeChild(chartElement);
+            const newCanvas = document.createElement('canvas');
+            newCanvas.id = 'nutrientChart';
+            document.querySelector('.worm-graph-container').appendChild(newCanvas);
+            createChart();
+        });
+
+        // Function to update font size based on canvas size
+                function updateFontSize() {
+            const canvas = document.getElementById('nutrientChart');
+            const fontSize = Math.max(Math.min(canvas.width / 50, 16), 10); // Adjust these values as needed
+            chart.options.plugins.legend.labels.font.size = fontSize;
+            chart.update();
+        }
+
+        // Call the function initially and on window resize
+        updateFontSize();
+        window.addEventListener('resize', updateFontSize);
+    </script>
+</body>
+</html>

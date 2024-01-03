@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <style>
+        /* Header styling */
+        header {
+            font-family: 'Open Sans', Arial, sans-serif;
+            background-color: #3498db;
+            color: #fff;
+            padding: 20px;
+        }
+
+        /* Navigation links in the header */
+        nav {
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: medium;
+            margin: 0 20px;
+            font-weight: 450;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #62ff50;
+        }
+
+    </style>
+    <title></title>
+</head>
+<body>
+    <header class="NutriVerse-Header">
+        <nav>
+            <a href="{{url_for('landing_page')}}">Home</a>
+            <a href="#">About Us</a>
+            <a href="#">Features</a>
+            <a href="{{url_for('read_blogs')}}">Blogs</a>
+            <a href="{{url_for('welcome')}}">Dashboard</a>
+            <a href="{{url_for('logout')}}">Log Out</a>
+            
+        </nav>
+    </header>
+    
+</body>
+</html>

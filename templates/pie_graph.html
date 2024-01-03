@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/css/pie_chart_styles.css" />
+  </head>
+  <body>
+    {%include "pie_chart_symbol.html"%}
+    <!--<h3>{{result}}</h3>-->
+    <div class="nutrients-stats">
+      <!-- <div class="chart-container"> -->
+        <canvas class="my-chart" width="200" height="250"></canvas>
+      <!-- </div> -->
+
+      <div class="details">
+        <ul>
+            
+        </ul>
+      </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var data_list = {{ [total_daily_data['sugar_g'], total_daily_data['protein_g'], total_daily_data['carbohydrates_total_g'], total_daily_data['fat_total_g']]  | safe }}
+        // var data_list = [25,25,25,25]
+        const chartData = {
+          labels:['Sugar','Proteins','Carbohydrates', 'Fats'],
+          data:data_list
+        };
+        
+        const myChart = document.querySelector(".my-chart");
+        const ul = document.querySelector(".nutrients-stats .details ul");
+        
+        new Chart(myChart, {
+          type: "doughnut",
+          data: {
+            labels: chartData.labels,
+            datasets: [
+              {
+                label: "Daily Intake",
+                data: chartData.data,
+              },
+            ],
+          },
+          options: {
+            animation: {
+              animateRotate: true, // Enable rotation animation
+              animateScale: true, // Enable scale animation
+              duration: 2000 // Animation duration in milliseconds
+          },
+            borderWidth: 8,
+            borderRadius: 2,
+            hoverBorderWidth: 0,
+            plugins: {
+              legend: {
+                display: false,
+              },
+            },
+          },
+        });
+        
+        const populateUl = () => {
+          chartData.labels.forEach((l, i) => {
+            let li = document.createElement("li");
+            li.innerHTML = `${l}: <span class='percentage'>${chartData.data[i]}g</span>`;
+            ul.appendChild(li);
+          });
+        };
+        
+        populateUl();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Macronutrients Intake Compared with Today's Goal</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Add some basic styling for the chart container */
+        .chart-container-bar {
+            width: 80%;
+            margin: 0 auto;
+            margin-left: 10px;
+            margin-right: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="chart-container-bar">
+        <canvas id="mergedBarChart" width="300" height="150"></canvas>
+    </div>
+
+    <script>
+        // Get a reference to the canvas element
+        var ctx = document.getElementById('mergedBarChart').getContext('2d');
+        // var today_goal={{goal|safe}}
+        var today_intake={{[total_daily_data['calories'],total_daily_data['protein_g'],total_daily_data['carbohydrates_total_g'],total_daily_data['fat_total_g']]|safe}}
+        // var today_goal = [goal
+        var today_goal = {{[goal['calories'],goal['proteins'],goal['carbs'],goal['fats']]|safe}}
+        // var today_intake = [20,30,70,120];
+        // Define data for the merged bar chart
+        var data = {
+            labels: ['Calories', 'Proteins', 'Carbohydrates','Fats'],
+            datasets: [
+                {
+                    label: "Today's Intake",
+                    data: today_intake,
+                    backgroundColor: 'rgba(75, 192, 192)',
+                    borderColor: 'rgba(75, 192, 192)',
+                    borderWidth: 1
+                },
+                {
+                    label: "Today's Goal",
+                    data: today_goal,
+                    backgroundColor: 'rgba(255, 99, 132)',
+                    borderColor: 'rgba(255, 99, 132)',
+                    borderWidth: 1
+                }
+            ]
+        };
+
+        // Configure the options for the chart
+        var options = {
+            animation: {
+                animateScale: true, // Enable scale animation
+                animateRotate: true, // Enable rotation animation
+                duration: 1000, // Animation duration in milliseconds
+            },
+            responsive: true,
+            
+            scales: {
+                x: {
+                    beginAtZero: true,
+                    ticks: {
+                        color: 'white' // Set the color of x-axis labels to white
+                    }
+                },
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        color: 'white' // Set the color of y-axis labels to white
+                    }
+                }
+            }
+        };
+
+        // Create the merged bar chart
+        var mergedBarChart = new Chart(ctx, {
+            type: 'bar',
+            data: data,
+            options: options
+        });
+
+    </script>
+</body>
+</html>

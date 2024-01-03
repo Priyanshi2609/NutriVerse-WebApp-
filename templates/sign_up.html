@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup - NutriVerse</title>
+    <style>
+        /* Reset some default styles for cross-browser consistency */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #CDF5FD; /* Food-related background color */
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center; /* Center the content vertically */
+            height: 100vh; /* Full viewport height */
+        }
+
+        /* Signup page styling */
+        .signup-container {
+            background-color: #3498db; /* Use the theme color of the landing page */
+            color: #000; /* Text color on the theme background */
+            max-width: 600px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 36px;
+            margin: 20px 0;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        /* Form styling */
+        .signup-form {
+            text-align: left;
+        }
+
+        .form-group {
+            margin: 20px 0;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            color: #000; /* Black color for labels */
+        }
+
+        .password-input {
+            position: relative;
+        }
+
+        .eye-toggle {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            width: 25px;
+        }
+
+        .eye-toggle img {
+            width: 100%; /* Make the image fill the container */
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid rgba(0, 0, 0, 0.472);
+            border-radius: 5px;
+        }
+
+        .cta-button {
+            display: block;
+            width: 20%; /* Make the button smaller */
+            margin: 0 auto; /* Center the button horizontally */
+            padding: 10px; /* Adjust padding */
+            background-color: #ff7f50; /* Food-related button color */
+            color: #000; /* Black color for button text */
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 18px; /* Adjust font size */
+            transition: background-color 0.3s;
+            border: 2px solid #000;
+        }
+
+        .cta-button:hover {
+            background-color: #e64a19;
+        }
+
+        #eye-image {
+            vertical-align: bottom;
+            padding-top: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <h1>Sign Up for NutriVerse</h1>
+        <p>Create your account and start tracking your nutrition goals.</p>
+
+        <form method="post" action="{{url_for('sign_up')}}" class="signup-form">
+            <div class="form-group">
+                <label for="name"> Name </label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email"> Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="Gender"> Gender</label>
+                <select id="Gender" name="gender" class="form-control" required>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="PreferNotToSay">Prefer Not to Say</option>
+                </select>
+            </div>
+
+            <div class="form-group password-input">
+                <label for="password"> Password</label>
+                <input type="password" id="password" name="password" required>
+                <div class="eye-toggle" id="eye-toggle" onclick="togglePasswordVisibility()">
+                    <img id="eye-image" src="static/img/view.png" alt="Show Password">
+                </div>
+            </div>
+
+            <input type="submit" value="Sign Up" class="cta-button"></input>
+        </form>
+    </div>
+
+    <script>
+        var isPasswordVisible = false;
+
+        function togglePasswordVisibility() {
+            var passwordInput = document.getElementById("password");
+            var eyeImage = document.getElementById("eye-image");
+
+            isPasswordVisible = !isPasswordVisible;
+
+            if (isPasswordVisible) {
+                passwordInput.type = "text";
+                eyeImage.src = "/static/img/view.png";
+            } else {
+                passwordInput.type = "password";
+                eyeImage.src = "/static/img/hide.png";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Icon with Background Color</title>
+    <style>
+        .icon-container {
+            width: 48px; /* Set the width to create a square container */
+            height: 48px; /* Set the height to create a square container */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #FFDFDF;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .bi-bookmarks-fill {
+            fill: #DA0C81; /* Change the icon color here */
+            font-weight: bold;
+            transition: fill 0.2s;
+        }
+
+        .icon-container:hover {
+            transform: scale(1.1); /* Zoom in on hover */
+        }
+
+        .bi-bookmarks-fill:hover {
+            fill: #F26C4F; /* Change the icon color on hover */
+        }
+
+        #symbol-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            position: relative; /* Make the container a positioning context */
+        }
+
+        #blog-info-popup {
+            display: none;
+            position: absolute;
+            background-color: rgba(12, 218, 194, 0.952);
+            margin-top: 10px;
+            color: rgb(0, 0, 0);
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 1;
+            width: 200px;
+            text-align: center;
+            top: 100%; /* Position the popup below the "Blogs" text */
+            left: 50%; /* Center the popup horizontally */
+            transform: translateX(-50%); /* Center the popup horizontally */
+        }
+
+        #symbol-text:hover #blog-info-popup {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-symbol">
+        <div class="icon-container">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-bookmarks-fill" viewBox="0 0 16 16">
+                <path d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7 13.101l-4.223 2.815A.5.5 0 0 1 2 15.5V4z"/>
+                <path d="M4.268 1A2 2 0 0 1 6 0h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L13 13.768V2a1 1 0 0 0-1-1H4.268z"/>
+            </svg>
+        </div>
+        <div id="symbol-text">
+            <h2>Blogs</h2>
+            <div id="blog-info-popup">
+                <p>Explore our informative blogs to learn more about nutrition, health tips, and delicious recipes. Blogs are a valuable source of knowledge, providing insights, advice, and inspiration to help you achieve your wellness goals.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

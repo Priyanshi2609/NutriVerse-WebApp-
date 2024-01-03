@@ -1,0 +1,54 @@
+{% include "header.html" %}
+    <head>
+        <link rel="stylesheet" type="text/css" href="/static/css/blog_styles.css">
+    </head>
+        <!-- Page Header-->
+<!--        <header class="masthead" style="background-image: url({{ url_for('static', filename='assets/img/home-bg.jpg') }})">-->
+        <header class="masthead" style="background-image: url('https://www.datocms-assets.com/23496/1647380894-istock-820841572-e1517404092222.jpg?fit=crop&h=640&w=1280')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>Daily Intake Goal</h1>
+                            <span class="subheading">Your daily nutritional goals are the blueprint for a healthier, happier you. Stay committed, and your body will thank you.</span>
+                            <br>
+                            <span class="subheading">Please enter your daily intake goals for calories, proteins, fats, and carbohydrates.</span>
+                           <br>
+                           
+                            <form id="contactForm" action="{{url_for('edit_goals')}}" method="post">
+                                <div class="form-floating">
+                                    <input class="form-control" name="calories"id="calories" type="number" placeholder="Enter your daily goal of calories intake.." data-sb-validations="required" />
+                                    <label for="calories" name="calories">Calories Goal (kcal):</label>
+                                    
+                                    <div class="invalid-feedback" data-sb-feedback="name:required"></div>
+                                </div>
+                                <div class="form-floating">
+                                    <input class="form-control" id="proteins" type="number" name="proteins"placeholder="Enter your daily goal of calories intake.." data-sb-validations="required,email" />
+                                    <label for="proteins" name="proteins">Proteins Goal (g):</label>
+                                    <div class="invalid-feedback" data-sb-feedback="email:required"></div>
+                                    
+                                </div>
+                                <div class="form-floating">
+                                    <input class="form-control" id="carbs" type="number" name="carbs"placeholder="Enter your daily goal of calories intake.." data-sb-validations="required" />
+                                    <label for="carbs" name="carbs">Carbohydrates Goal (g):</label>
+                                    <div class="invalid-feedback" data-sb-feedback="phone:required"></div>
+                                </div>
+                                <div class="form-floating">
+                                    <input class="form-control" id="fats" name="fats"type="number" placeholder="Enter your daily goal of calories intake.." data-sb-validations="required" />
+                                    <label for="fats" name="fats">Fats Goal (g):</label>
+                                    <div class="invalid-feedback" data-sb-feedback="message:required"></div>
+                                </div>
+    
+                                <input type="submit" value="Edit goal" class="cta-button"></input>
+                            </form>
+                            
+                        </body>
+                        </html>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+       
+
+{% include "footer.html" %}

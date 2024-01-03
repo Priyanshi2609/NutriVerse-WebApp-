@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+    <title>SVG Icon with Background Color</title>
+    <style>
+
+        .header-symbol {
+            display: flex;
+            align-items: center;
+        }
+
+        #symbol-text {
+            font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            color: #000000; 
+            padding-left: 25px;
+            
+        }
+        .icon-container {
+            width: 48px; /* Set the width to create a square container */
+            height: 48px; /* Set the height to create a square container */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #CDF5FD;
+            border-radius: 15px; 
+            border-width: 5px;
+            border-color: #041f00;
+        }
+
+        .bi-menu-down {
+            fill: #427D9D; /* Change the icon color here */
+            font-weight: bold;
+        }
+
+        @keyframes swing {
+        0% {
+            transform: rotate(0deg);
+        }
+        50% {
+            transform: rotate(40deg); /* Adjust the angle for the swing */
+        }
+        100% {
+            transform: rotate(0deg);
+        }
+        }
+
+        .bi-menu-down:hover {
+            animation: swing 0.6s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- <h1>SVG Icon with Background Color</h1> -->
+    <div class="header-symbol">
+    <div class="icon-container">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-menu-down" viewBox="0 0 16 16">
+            <path d="M7.646.146a.5.5 0 0 1 .708 0L10.207 2H14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h3.793L7.646.146zM1 7v3h14V7H1zm14-1V4a1 1 0 0 0-1-1h-3.793a1 1 0 0 1-.707-.293L8 1.207l-1.5 1.5A1 1 0 0 1 5.793 3H2a1 1 0 0 0-1 1v2h14zm0 5H1v2a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2zM2 4.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 0 1h-8a.5.5 0 0 1-.5-.5zm0 4a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0 4a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"/>
+          </svg>
+    </div> 
+    <h2 id="symbol-text">Search Recipes</h2>   
+    </div>
+    <!-- <h3>Search Recipes</h3> -->
+</body>
+</html>
